@@ -1,0 +1,7 @@
+# uname.yml
+
+---
+  - hosts: workstations:webservers:databases
+    tasks:
+      - name: Get OS type
+        shell: uname
