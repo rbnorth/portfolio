@@ -1,81 +1,103 @@
-### awk
+# linux commands 
 
-### blkid
+## todo:
+1. clean up notes
+   
+## contents
 
-    blkid /dev/sdb1
+
+# awk
+
+# blkid
+
+`blkid /dev/sdb1`
     
--- fstab --
+_fstab_
+    
     UUID=c286bbaf-91fd-4f16-8155-614cd6d507a9 /chroot xfs nobarrier,noatime 00
 
-### dmicode
+# dmicode
 
-    sudo /usr/sbin/dmidecode
-    sudo /usr/sbin/dmidecode --string system-manufacturer
-    sudo /usr/sbin/dmidecode --string system-product-name
-    sudo /usr/sbin/dmidecode --string system-serial-number
+`sudo /usr/sbin/dmidecode`
 
-### file size sorted 
+`sudo /usr/sbin/dmidecode --string system-manufacturer`
+
+`sudo /usr/sbin/dmidecode --string system-product-name`
+
+`sudo /usr/sbin/dmidecode --string system-serial-number`
+
+# file size sorted 
     
-    ls -lahrS
-    du -sh ./* | grep G | sort -n
+`ls -lahrS`
 
-### find exit status
+`du -sh ./* | grep G | sort -n`
+
+# find exit status
     
-    echo $?
+`echo $?`
 
-### find file and dir size
-    ls -laht * | grep G | sort -n
-    du -sh ./* | grep G| sort -n
-
-### find and remove
+# find file and dir size
     
-    find /backups/mysqldumps/ -name "dump_150302_00016*"
-    find /backups/mysqldumps/ -name "dump_150302_000160*" -exec rm -i {} \;
+`ls -laht * | grep G | sort -n`
 
-### find process by port
+`du -sh ./* | grep G| sort -n`
+
+# find and remove
     
-    sudo netstat -nlp | grep 54439
-    sudo lsof -i :54439
-    sudo lsof -i tcp:54439
+`find /backups/mysqldumps/ -name "dump_150302_00016*"`
 
-### fuser
+`find /backups/mysqldumps/ -name "dump_150302_000160*" -exec rm -i {} \;`
+
+# find process by port
     
-    fuser -m /scratch/exports
-    fuser -v -m /tmp
+`sudo netstat -nlp | grep 54439`
 
-### gdb
+`sudo lsof -i :54439`
 
-### inodes
+`sudo lsof -i tcp:54439`
+
+# fuser
     
-    ls -1 /var/lock
-    stat /var/lock
-    df -i
-    du -i
+`fuser -m /scratch/exports`
 
-### ln 
-    
-    sudo ln -sf /usr/bin/{xscreensaver,cinnamon-screensaver}
+`fuser -v -m /tmp`
 
-### mdadm
+# gdb
 
-#### status check
+# inodes
+
+`ls -1 /var/lock`
+
+`stat /var/lock`
+
+`df -i`
+
+`du -i`
+
+# ln 
+
+sudo ln -sf /usr/bin/{xscreensaver,cinnamon-screensaver}
+
+# mdadm
+
+# status check
     
     watch -n1 cat /proc/mdstat
     mdadm -D /dev/md0
 
-#### sync check
+# sync check
     
     cat /sys/block/md0/md/sync_action
     echo "idle" > /sys/block/md0/md/sync_action
     echo "check" > /sys/block/md0/md/sync_action
     echo "repair" > /sys/block/md0/md/sync_action
 
-#### array state 
+# array state 
     
     cat /sys/block/md0/md/array_state
     echo "clean" > /sys/block/md0/md/array_state
 
-#### rebuild event 
+# rebuild event 
     
     tail -f /var/log/syslog
     cat /proc/mdstat
@@ -86,7 +108,7 @@
     cat /sys/block/md0/md/mismatch_cnt
     mdadm --zero-superblock /dev/sda
 
-### megacli
+# megacli
 
     MegaCli -PDList -aALL
     MegaCli -LDInfo -Lall -aALL
@@ -103,14 +125,14 @@
     MegaCli -CfgLdAdd -rX[enclosure_id:physical_id,enclosure_id:physical_id] -aN
     MegaCli -CfgLdAdd -r0[245:3,245:4] -a0
 
-#### controller info
+# controller info
     
     MegaCli -AdpAllInfo -aALL
     MegaCli -CfgDsply -aALL
     MegaCli -AdpEventLog -GetEvents -f events.log -aALL && cat events.log
     MegaCli -AdpEventLog -GetEvents -f events.log -aALL && tail -n 30 events.log
 
-#### enclosure info
+## enclosure info
     
     MegaCli -EncInfo -aALL
 
@@ -229,6 +251,13 @@
     tmux new -s foo
     tmux a -t foo
 
+### top
+    
+    top
+
+    top -bn1 | head -n 15
+
+
 ### writes to disk
     
     lsof | grep -e "[[:digit:]]\+w"
@@ -239,6 +268,12 @@
 ### write zeros to log
     
     /dev/null > /var/log/messages
+
+### ulimit
+    
+    ulimit
+
+    ulimit -a
 
 ### user info
     
