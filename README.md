@@ -35,4 +35,3 @@ Not necessary thought of by me, but work I have done to learn basic concepts. Wi
 - Introducing Go book 
 - Terraform Up and Running book
 
-
