@@ -33,22 +33,17 @@
    10. monitoring
    11. events
 7. debugging
-8. docker compose
+8. docker-compose
+   1. sample
+   2. commands
+   3. maintance/auto restart
 9. production grade workflow
 10. ci/cd
 11. multi-container application
 12. "dockerizing" multiple services
 13. aws
-    
 
-
-14. port mapping
-15. connecting to container
-16. debugging containers
-17. docker compose
-18. production containers
-
-   
+# content  
 # running a containger
 
     docker run -it --name <container> apline
@@ -328,6 +323,29 @@ _basic example of a docker-compose.yml_
 
 ## commands
 
+_start_
+
 `docker-compose up`
 
 `docker-compose up --build`
+
+_run in background_
+
+`docker-compose up -d`
+
+_shutdown/stop_
+
+`docker-compose down`
+
+## maintance/auto restart
+
+    'no'
+    always
+    on-failure
+    unless-stopped
+
+## container status with docker compose
+
+`docker-compose ps`
+
+# production grade workflow
