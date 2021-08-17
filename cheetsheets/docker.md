@@ -196,7 +196,8 @@ _inspect contents_
 
 ## image management
 
-    docker image build
+_build image_
+`docker image build`
 
 _print image history_    
 `docker image history`
@@ -237,7 +238,7 @@ _pushes or pulls newly created image to dockerhub_
 # working with containers
 ## creating a container
 
-    docker create -p 6379:6379 redis:latest
+`docker create -p 6379:6379 redis:latest`
 
 ## starting a container
 
@@ -307,16 +308,26 @@ _pushes or pulls newly created image to dockerhub_
 
 `docker events`
 
+# debugging
 
+# docker-compose
 
+_create a docker-compose file_
 
-## connecting to container
+`touch docker-compose.yml`
 
-run and connect - used for debugging
-    
-    docker run -it rbnorth/simpleweb sh
+_basic example of a docker-compose.yml_
+    version: '3'
+    services:
+        redis-server:
+            image: 'redis'
+        node-app:
+            build: .
+            ports:
+            - "4001:8081"
 
-connect after container is running
-    
-    docker ps
-    docker exec -it <container id> sh
+## commands
+
+`docker-compose up`
+
+`docker-compose up --build`
