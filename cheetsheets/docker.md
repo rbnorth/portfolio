@@ -349,3 +349,5 @@ _shutdown/stop_
 `docker-compose ps`
 
 # production grade workflow
+
+    features --> pull request --> master --> testing --> aws

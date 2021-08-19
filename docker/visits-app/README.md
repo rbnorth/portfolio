@@ -1,11 +1,11 @@
 # counter-app
-Simple flask app that counts web site visits and stored in a default Redis backend. Used in Docker Deep Dive book
+Simple node.js that counts web site visits and stored in a default Redis backend.
 
 ## images used
 
-`python:alpine`
+`node`
 
-`redis:alpine`
+`redis`
 
 
 ## commands
@@ -32,7 +32,7 @@ Simple flask app that counts web site visits and stored in a default Redis backe
     docker valume ls
 
 ### verify running web server
-    curl http://localhost:5000
+    curl http://localhost:4001
 
 ### shutdown containers with docker-compose
     docker-compose down
@@ -42,4 +42,5 @@ Simple flask app that counts web site visits and stored in a default Redis backe
 
 
 **References:**
-- Docker Deep Dive book (Compose chapter)
+- Docker and Kubernetes (udemy online)
+
