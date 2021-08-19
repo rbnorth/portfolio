@@ -2,20 +2,12 @@
 
 ## contents
 1. README.md
-1. angular-app
 1. counter-app
-1. django-app
-1. full-statck
-
-### angular-app
+1. demo-docker-react-app
+1. visits
 
 ### counter-app
 This was a git download from docker deep dive. Where you work with docker-compose.
-
-### django-app
-
-### full-stack
-
 
 ## commands
 
