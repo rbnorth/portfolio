@@ -1,26 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hello-deploy
+  name: svc-test
 spec:
   replicas: 10
   selector:
     matchLabels:
-      app: hello-world
-  minReadySeconds: 10
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxUnavailable: 1
-      maxSurge: 1
+      chapter: services
   template:
     metadata:
       labels:
-        app: hello-world
+        chapter: services
     spec:
       containers:
-      - name: hello-pod
+      - name: hello-ctr
         image: nigelpoulton/k8sbook:latest
-        #image: nigelpoulton/k8book:edge
         ports:
         - containerPort: 8080

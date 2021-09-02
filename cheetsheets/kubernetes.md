@@ -1,13 +1,28 @@
 # kubernetes 
 
 # contents
-
+1. minikube
+2. commands
+3. pods
+4. deployments
+5. services
+6. service discovery
 
 # minikube
     minikube start
     minikube status
-    minikube stop
+    minikube ip
     minikube dashboard
+    minikube stop
+    minikube delete
+
+# install kubectl
+
+    sudo curl --silent --location -o /usr/local/bin/kubectl \
+        https://amazon-eks.s3.us-west-2.amazonaws.com/1.19.6/2021-01-05/bin/linux/amd64/kubectl
+
+    sudo chmod +x /usr/local/bin/kubectl
+
 
 # commands
 
@@ -26,15 +41,22 @@
     kubectl config use-context my-context
 
 ## pods
-_pod-definition.yml_
+_pod-definition.yml example_
     
-    apiVersion:
-    
-    kind:
-    
+    apiVersion: v1
+    kind: Pod
     metadata:
-    
+    name: static-web
+    labels:
+        role: myrole
     spec:
+    containers:
+        - name: web
+        image: nginx
+        ports:
+            - name: web
+            containerPort: 80
+            protocol: TCP
 
 _commands_
     
@@ -44,17 +66,47 @@ _commands_
     kubectl describe pod myapp-pod
     kubectl delete -f pod-definition.yml
 
+    *the kubernetes book
+    kubectl get pods hello-pod -o yaml
+    kubectl describe pods hello-pod
+    kubectl exec hello-pod ps aux
+    kubectl exec -it hello-pod sh
+    (revised)
+    kubectl exec hello-pod -- ps aux
+    kubectl exec -it hello-pod -- sh
+     
 ### replicasets
 
 info on both replicaioncontorller and replicasets
 
 * replicationcontroller begining to be depricated
 
-_rc-definition.yml_
+_rc-definition.yml example_
+    
+    apiVersion: apps/v1
+    kind: ReplicaSet
+    metadata:
+    name: web
+    labels:
+        env: dev
+        role: web
+    spec:
+    replicas: 4
+    selector:
+        matchLabels:
+        role: web
+    template:
+        metadata:
+        labels:
+                role: web
+        spec:
+        containers:
+        - name: nginx
+                image: nginx
 
 _commands_
 
-_replicationcontroller_
+_replicationcontroller(deprecated)_
     
     kubectl create -f rc-definition.yml
     kubectl get replicationcontroller
@@ -87,6 +139,31 @@ _commands_
     kubectl get replicasets
     kubectl get pods
 
+__the kubernetes book__
+
+    kubectl apply -f deploy.yml
+    kubectl get deploy hello-deploy
+    kubectl describe deploy hello-deploy
+    kubectl get replicasets
+    kubectl get rs      
+
+    kubectl apply -f svc.yml
+
+    kubectl apply -f deploy.yml --record
+    kubectl rollout status deployment hello-deploy
+    kubectl get deploy
+    kubectl get deploy hello-deploy 
+
+    # rollback 
+    kubectl rollout history deployment hello-deploy
+    kubectl get rs
+    kubectl rollout undo deployment hello-deploy --to-revision=1
+    kubectl get deploy hello-deploy
+    kubectl rollout status deployment hello-deploy
+    
+    kubectl delete -f deploy.yml
+    kubectl delete -f svc.yml
+
 __kubectl run__
 
     - pod
@@ -99,9 +176,32 @@ __kubectl run__
     * to create deployment yaml file
     kubectl create deployment --image=nginx nginx --dry-run=client -o yaml
 
+### services
 
+__the kubernetes book__
 
+    kubectl apply -f deploy.yml
 
+_imperative way (you should avoid this, its dumb and can cause ibs)_
+    
+    kubectl expose deployment web-deploy --name=hello-svc --target-port=8080 --type=NodePort
+    kubectl describe svc hello-svc
+    kubectl delete svc hello-svc
+
+_declarative way (this is the way you should do it, keeps track of changes and whats been done)_
+
+    kubectl apply -f svc.yml
+    kubectl get svc hello-svc
+    kubectl describe svc hello-svc
+
+    kubectl get endpoints hello-svc
+    kubectl get ep hello-svc
+    kubectl describe ep hello-svc
+
+    kubectl delete -f deploy.yml
+    kubectl delete -f svc.yml
+
+### service discovery 
 
 
 # Referneces
