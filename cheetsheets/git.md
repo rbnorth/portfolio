@@ -81,23 +81,52 @@ _remove entry from config_
 
     git config --global alias.show-graph 'log --graph --abbrev-commit --pretty=oneline'
 
-# git branches
+    git config --global alias.show-graph-all 'log --oneline --graph --all'
 
-    git branch
+# git init
 
-    git show-branch
+    git init
 
-    git checkout 
 
-# initialize repo
-git init
+# HEAD
 
+the HEAD file is key - it points to the current branch or commit ID you currently 'on' within your
+git repository.
+
+
+# git status
+
+    git status
+
+# git add 
+
+# git commit 
+
+    git commit -m
+    git commit -am
+    git commit --amend --message
 
 # git diff
 
-git --no-pager diff
+    git --no-pager diff
+    git --no-pager diff --staged
 
-git --no-pager diff --staged
+# git clone
+
+_example_
+
+    git clone https://github.com/ianmiell/shutit
+
+_http_
+    
+    git clone https://github.com/rbnorth/portfolio.git
+    
+_ssh_
+    
+    git clone git@github.com:rbnorth/portfolio.git
+
+
+`grep -A2 'remote "origin"' .git/config`
 
 # git log
 
@@ -107,20 +136,34 @@ git --no-pager diff --staged
     git --no-pager log
     git --no-pager log -p
 
-# git commit 
-
-    git commit -m
-    git commit -am
-    git commit --amend --message
 
 # git reset 
 
-_--mixed flage takes items out of the thier 'add'status_
+by default, git will recover whater has been added to the index/staging area and place it in your
+working directory.
+
+    git reset
+
+
+_--mixed flage takes items out of the thier 'add'status, but keeps them altered in current working
+folder_
 
     git reset --mixed
 
 _--hard not takes items out their 'added' status, they make the working tree state consistent with
 what was last committed
+
+    git reset --hard
+
+# git branching
+
+## git branch
+
+## git checkout
+
+## git switch
+
+
 
 # tagging
 
@@ -128,7 +171,9 @@ what was last committed
 
     git tag remember_to_tell_bob_to_rewrite_this newfeature
 
-# git merge
+# merging 
+
+## git merge
 
     git merge experimental
 
@@ -167,6 +212,19 @@ _Stash the changes in a dirty working directory away_
 
 
 # git rebase
+
+git rebase
+
+# git bisect
+
+# git push
+
+# git fetch
+
+# git pull
+
+# git submodule
+
 
 
 
