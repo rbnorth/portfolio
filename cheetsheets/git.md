@@ -133,6 +133,18 @@ _ssh_
     git log
     git log --oneline
     git log --oneline --graph
+    git log --decorate --graph --oneline
+    git log --decorate --graph --oneline --all
+    git log --decorate --graph --oneline --all --source
+
+    git log --simplify-by-decoration
+    git log --decorate --graph --oneline --all --simplify-by-decoration
+
+    git log --graph --oneline --all > all_output
+    git log --graph --oneline > noall_output
+
+    git log --pretty
+
     git --no-pager log
     git --no-pager log -p
 
@@ -159,17 +171,51 @@ what was last committed
 
 ## git branch
 
+    git branch
+
+    git branch newfeature 
+
+_ -f, --force _
+
+    git branch -f newfeature
+
+_same as branch but automatically puts in new branch_
+    
+    git checkout -b newfeature
+
+_delete a branch_
+    
+    git branch -D newfeature
+
+
 ## git checkout
+
+    git checkout newfeature
+
+    git checkout ID
+
 
 ## git switch
 
+    git switch newfeature
+
+    git switch -c newbranch
+
+    git switch - 
 
 
-# tagging
+###  tagging
 
     git tag i_was_here
-
     git tag remember_to_tell_bob_to_rewrite_this newfeature
+    git tag -l
+
+### remeber these points
+1. a branch is a pointer to the end of a line of changes
+2. a tag is pointer to a single change
+3. HEAD is where git repository is right now
+4. 'Detached head' mean you are at a commit that has no reference (branch or tag) associated with
+   it
 
 # merging 
 
@@ -198,6 +244,8 @@ _Stash the changes in a dirty working directory away_
 
 # git reflog
 
+the _reflog_ gives you references to a sequential history of what you have done to the repository.
+
     git reflog
 
 
@@ -215,7 +263,10 @@ _Stash the changes in a dirty working directory away_
 
 git rebase
 
+git rebase -i $(git rev-list --max-parents=0 HEAD) HEAD
 # git bisect
+
+git bisect
 
 # git push
 
