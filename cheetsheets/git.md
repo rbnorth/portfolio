@@ -135,7 +135,16 @@ _ssh_
     git log --oneline --graph
     git log --decorate --graph --oneline
     git log --decorate --graph --oneline --all
-    
+    git log --decorate --graph --oneline --all --source
+
+    git log --simplify-by-decoration
+    git log --decorate --graph --oneline --all --simplify-by-decoration
+
+    git log --graph --oneline --all > all_output
+    git log --graph --oneline > noall_output
+
+    git log --pretty
+
     git --no-pager log
     git --no-pager log -p
 
@@ -173,6 +182,11 @@ _ -f, --force _
 _same as branch but automatically puts in new branch_
     
     git checkout -b newfeature
+
+_delete a branch_
+    
+    git branch -D newfeature
+
 
 ## git checkout
 
@@ -249,6 +263,7 @@ the _reflog_ gives you references to a sequential history of what you have done 
 
 git rebase
 
+git rebase -i $(git rev-list --max-parents=0 HEAD) HEAD
 # git bisect
 
 git bisect
