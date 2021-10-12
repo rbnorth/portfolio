@@ -276,6 +276,17 @@ git bisect
 
 # git submodule
 
+# update branch
+
+_should look this up again to make sure this is correct_
+
+    git checkout <branch>
+    git fetch -p origin
+    git merge origin/dev
+    git checkout <branch>
+    git merge dev
+    git push origin <branch>
+
 
 
 
