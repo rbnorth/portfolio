@@ -171,13 +171,21 @@ what was last committed
 
 ## git branch
 
+_list branches_
+
     git branch
+
+_create a new branch_
 
     git branch newfeature 
 
 _ -f, --force _
 
     git branch -f newfeature
+
+
+    git show-branch
+
 
 _same as branch but automatically puts in new branch_
     
@@ -288,6 +296,13 @@ _should look this up again to make sure this is correct_
     git push origin <branch>
 
 
+# notes from the git o'reily book
+
+    git cat-file -p 
+
+    git rev-parse
+
+    git ls-files -s
 
 
 
