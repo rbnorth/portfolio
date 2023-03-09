@@ -6,7 +6,7 @@ rbnorthcutt@gmail.com
 
 406-570-1893
 
-linkedin.com/in/brent-northcutt
+https:linkedin.com/in/brent-northcutt
 
 https://github.com/rbnorth
 
