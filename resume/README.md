@@ -8,6 +8,10 @@ rbnorthcutt@gmail.com
 
 linkedin.com/in/brent-northcutt
 
+https://github.com/rbnorth
+
+https://gitlab.com/rbnorth
+
 Summary
 
 Ever since I was young I have always loved to build and engineer. It all started with legos and Radio Shack electronic kits. After high school, I joined the Army as a Signal Support System Specialist and was assigned to the 82nd Airborne Division. Not only could I play with radios but I got to jump out of airplanes too. It was during this time that I picked up basic computer and networking skills. Once I got out of the Army, I wanted to move out West and become a smokejumper. As life happens that dream faded, but I was still tinkering with electronics and would soon gravitate towards Linux. At this point I decided to use my G.I. Bill for college and got a programming degree so I could understand the programs behind Linux OS. During my studies I discovered Gentoo Linux, which sent me down a rabbit hole, from compiling my own kernel from scratch to configuring my own desktop. It was like my electronic kits as a kid. Every little nuance was at my fingertips. Compiling everything from scratch. I explored every part of the kernel I could. I even went out and got my amateur radio license to work on parts of the kernel I hadn’t used yet. Later I would go on to build my own software defined radios.
