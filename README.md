@@ -5,15 +5,9 @@ Not necessary thought of by me, but work I have done to learn basic concepts. Wi
 
 ## contents
 1. README.md
-1. ansible
-1. bash
-1. cheetsheets
-1. cloudformation
 1. docker
 1. go
-1. jupyterlab
 1. kubernetes
-1. lambda
 1. python
 1. terraform
 
